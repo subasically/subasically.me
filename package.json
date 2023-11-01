@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "deploy": "sftp root@basic-cable.local && cd /mnt/user/appdata/NginxProxyManager/nginx/default_www && put -r dist/."
+    "deploy": "npm run build && sh ./deploy_script.sh"
   },
   "dependencies": {
     "vue": "^3.3.4"
