@@ -63,14 +63,6 @@ h1 {
   align-items: center;
 }
 
-.me {
-  height: 100%;
-  will-change: filter;
-  transition: filter 300ms;
-  border-radius: 50%;
-  box-shadow: 0 0 2em #8a8a8a;
-}
-
 .flag {
   height: 2rem;
   width: 2rem;
