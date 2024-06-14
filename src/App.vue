@@ -32,7 +32,7 @@ const locales: any = {
 
 <template>
   <header class="flex center-horizontal center-vertical">
-    <img src="./assets/me.png" class="me" alt="Alen Subasic" />
+    <img src="./assets/me.webp" class="me" alt="Alen Subasic" />
   </header>
   <main class="flex column center-vertical center-horizontal">
     <h1>Alen Subasic</h1>
