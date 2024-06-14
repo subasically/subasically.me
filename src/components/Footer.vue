@@ -8,7 +8,7 @@
             </li>
             <li>
                 <a href="https://www.linkedin.com/in/alensubasic" alt="linkedin" target="_blank">
-                    <img src="../assets/LI-In-Bug.png" alt="linkedin logo" class="footer logo">
+                    <img src="../assets/LI-In-Bug.webp" alt="linkedin logo" class="footer logo">
                 </a>
             </li>
         </ul>
