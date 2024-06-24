@@ -1,5 +1,6 @@
 <script setup lang="ts">
 var browserLang = (navigator.language == 'de-DE' || navigator.language == 'da-DK' || navigator.language == 'sv-SE' || navigator.language == 'en-GB') ? navigator.language : 'en-US'
+var year = new Date().getFullYear()
 
 const locales: any = {
   "en-US": {
@@ -32,7 +33,7 @@ const locales: any = {
 
 <template>
   <header class="flex center-horizontal center-vertical">
-    <img src="../src/assets/alen-subasic.webp" class="me" alt="Alen Subasic" />
+    <img src="./assets/alen-subasic.webp" class="me" alt="Alen Subasic" />
   </header>
   <main class="flex column center-vertical center-horizontal">
     <h1>Alen Subasic</h1>
@@ -61,6 +62,7 @@ const locales: any = {
         </a>
       </li>
     </ul>
+    <span>&copy; {{ year }} Alen Subasic</span>
   </footer>
 </template>
 
