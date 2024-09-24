@@ -47,7 +47,7 @@ const locales: any = {
     <img src="./assets/alen-subasic.webp" class="me" alt="Alen Subasic" />
   </header>
   <main class="flex column center-vertical center-horizontal">
-    <h1>Alen Subasicc</h1>
+    <h1>Alen Subasic</h1>
     <h2>{{ locales[browserLang]["greeting"] }}</h2>
     <p>{{ locales[browserLang]["aboutme"] }}</p>
   </main>
