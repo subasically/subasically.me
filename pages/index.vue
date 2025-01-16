@@ -1,14 +1,18 @@
 <script setup lang="ts">
-var browserLang =
-  navigator.language == "de-DE" ||
-  navigator.language == "da-DK" ||
-  navigator.language == "sv-SE" ||
-  navigator.language == "en-GB"
-    ? navigator.language
-    : "en-US";
-var year = new Date().getFullYear();
+import { ref, onMounted } from "vue";
 
-const locales: any = {
+// Reactive state for browser language
+const browserLang = ref("en-US");
+
+onMounted(() => {
+  // Set browserLang only on the client
+  const lang = navigator.language;
+  browserLang.value = lang === "de-DE" || lang === "da-DK" || lang === "sv-SE" || lang === "en-GB" ? lang : "en-US";
+});
+
+const year = new Date().getFullYear();
+
+const locales: Record<string, any> = {
   "en-US": {
     greeting: "Hello from The United States",
     aboutme:
@@ -44,7 +48,7 @@ const locales: any = {
 
 <template>
   <header class="flex center-horizontal center-vertical">
-    <img src="./assets/alen-subasic.webp" class="me" alt="Alen Subasic" />
+    <img src="../assets/alen-subasic.webp" class="me" alt="Alen Subasic" />
   </header>
   <main class="flex column center-vertical center-horizontal">
     <h1>Alen Subasic</h1>
@@ -58,24 +62,12 @@ const locales: any = {
       </li>
       <li>
         <a href="https://github.com/subasically" alt="github" target="_blank">
-          <img
-            src="./assets/github-mark.svg"
-            alt="github logo"
-            class="footer logo"
-          />
+          <img src="../assets/github-mark.svg" alt="github logo" class="footer logo" />
         </a>
       </li>
       <li>
-        <a
-          href="https://www.linkedin.com/in/alensubasic"
-          alt="linkedin"
-          target="_blank"
-        >
-          <img
-            src="./assets/linkedin.svg"
-            alt="linkedin logo"
-            class="footer logo"
-          />
+        <a href="https://www.linkedin.com/in/alensubasic" alt="linkedin" target="_blank">
+          <img src="../assets/linkedin.svg" alt="linkedin logo" class="footer logo" />
         </a>
       </li>
       <li>
@@ -84,11 +76,11 @@ const locales: any = {
           alt="email me"
           target="_blank"
         >
-          <img src="./assets/email.svg" alt="email me" class="footer logo" />
+          <img src="../assets/email.svg" alt="email me" class="footer logo" />
         </a>
       </li>
     </ul>
-    <span>&copy; {{ year }} Alen Subasic</span>
+    <span>Created with ❤️ using <a href="https://github.com/nuxt/nuxt">Nuxt</a> by Alen Subasic, {{ year }}</span>
   </footer>
 </template>
 
