@@ -21,7 +21,7 @@ jobs:
       - name: Install & Build
         run: |
           npm install
-          npm run build
+          npm run generate
 
       - name: Deploy to AWS Amplify
         env:
@@ -29,4 +29,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           npm install -g @aws-amplify/cli
+          amplify hosting add
           amplify publish --yes
