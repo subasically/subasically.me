@@ -3,11 +3,11 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm use 20 && node --version
-        - corepack enable && npx --yes nypm install
+        - nvm use 18 && node --version
+        - corepack enable && yarn install
     build:
       commands:
-        - pnpm build
+        - yarn build
   artifacts:
     baseDirectory: .amplify-hosting
     files:
