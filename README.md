@@ -7,7 +7,7 @@
 | Status | Task                                    |
 | ------ | --------------------------------------- |
 | ✅     | Build `basic` website.                  |
-| 🔄     | Migrate to Nuxt.                        |
+| ✅     | Migrate to Nuxt.                        |
 | 🔄     | Add blog functionality                  |
 | 🕒     | Implement a contact form                |
 | 🕒     | Optimize for mobile devices             |
