@@ -1,75 +1,21 @@
-# Nuxt Minimal Starter
+# Subasic-ally Me! 😊
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## A work in progress...
 
-## Setup
+## TODO:
 
-Make sure to install dependencies:
+| Status | Task                                    |
+| ------ | --------------------------------------- |
+| ✅     | Build `basic` website.                  |
+| 🔄     | Migrate to Nuxt.                        |
+| 🔄     | Add blog functionality                  |
+| 🕒     | Implement a contact form                |
+| 🕒     | Optimize for mobile devices             |
+| 🕒     | Add a portfolio section                 |
+| 🕒     | Add a newsletter subscription option    |
+| 🕒     | Include a testimonials section          |
+| 🕒     | Add a dark mode toggle                  |
+| 🕒     | Add a comments section for blog posts   |
+| 🕒     | Implement analytics to track site usage |
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+URL: [https://subasically.me](https://subasically.me)
