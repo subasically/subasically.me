@@ -1,9 +1,5 @@
 <template>
-  <NuxtLayout>
-    <div>
-      <!-- Page-specific content goes here -->
-    </div>
-  </NuxtLayout>
+  <NuxtLayout></NuxtLayout>
 </template>
 
 <script setup lang="ts"></script>

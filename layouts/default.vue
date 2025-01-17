@@ -1,14 +1,20 @@
 <template>
-  <div>
-    <header class="flex center-horizontal center-vertical">
+  <div class="container">
+    <header>
       <img src="../assets/images/alen-subasic.webp" class="me" alt="Alen Subasic" />
     </header>
-    <main class="flex column center-vertical center-horizontal">
+    <aside class="left-sidebar">
+      <!-- Left sidebar content -->
+    </aside>
+    <main>
       <h1>Alen Subasic</h1>
-      <h2>{{ locales[browserLang]["greeting"] }}</h2>
+      <h2 class="greeting">{{ locales[browserLang]["greeting"] }}</h2>
       <p>{{ locales[browserLang]["aboutme"] }}</p>
     </main>
-    <footer id="footer" class="flex column center-vertical center-horizontal">
+    <aside class="right-sidebar">
+      <!-- Right sidebar content -->
+    </aside>
+    <footer id="footer">
       <ul>
         <li>
           <img :src="locales[browserLang]['flag']" alt="flag" class="flag" />
@@ -87,4 +93,8 @@ const locales: Record<string, any> = {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.greeting {
+  text-align: center;
+}
+</style>
