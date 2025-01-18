@@ -7,7 +7,7 @@
       <!-- Left sidebar content -->
     </aside>
     <main>
-      <h1>Alen Subasic</h1>
+      <h1>Alen Subasic (DEV MODE)</h1>
       <h2 class="greeting">{{ locales[browserLang]["greeting"] }}</h2>
       <p>{{ locales[browserLang]["aboutme"] }}</p>
     </main>
