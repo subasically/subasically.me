@@ -8,14 +8,15 @@
 | ------ | --------------------------------------- |
 | ✅     | Build `basic` website.                  |
 | ✅     | Migrate to Nuxt.                        |
-| 🔄     | Add blog functionality                  |
+| ✅     | Refresh homepage positioning and design |
+| ✅     | Optimize for mobile devices             |
 | 🕒     | Implement a contact form                |
-| 🕒     | Optimize for mobile devices             |
 | 🕒     | Add a portfolio section                 |
-| 🕒     | Add a newsletter subscription option    |
+| 🔄     | Add blog functionality                  |
+| 🕒     | Implement analytics to track site usage |
 | 🕒     | Include a testimonials section          |
 | 🕒     | Add a dark mode toggle                  |
+| 🕒     | Add a newsletter subscription option    |
 | 🕒     | Add a comments section for blog posts   |
-| 🕒     | Implement analytics to track site usage |
 
 URL: [https://subasically.me](https://subasically.me)
