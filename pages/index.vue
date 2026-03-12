@@ -6,6 +6,14 @@
         <div class="top-bar__links">
           <a href="#about">About</a>
           <a href="#focus">Focus</a>
+          <button
+            type="button"
+            class="top-bar__button"
+            :aria-label="`Switch to ${nextThemeLabel} mode`"
+            @click="toggleTheme"
+          >
+            {{ currentThemeLabel }}
+          </button>
           <button type="button" class="top-bar__button" v-bind="tallyPopupAttrs">Contact</button>
         </div>
       </nav>
@@ -126,6 +134,8 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
 
+type ThemeMode = "light" | "dark";
+
 useHead({
   title: "Alen Subasic",
   meta: [
@@ -161,6 +171,8 @@ type LocaleContent = {
 const defaultLocale: LocaleKey = "en-US";
 const browserLang = ref<LocaleKey>(defaultLocale);
 const year = new Date().getFullYear();
+const theme = ref<ThemeMode>("light");
+const themeStorageKey = "subasically-theme";
 const tallyPopupAttrs = {
   "data-tally-open": "Gx1Gle",
   "data-tally-layout": "modal",
@@ -204,9 +216,31 @@ const locales: Record<LocaleKey, LocaleContent> = {
 };
 
 const locale = computed(() => locales[browserLang.value] ?? locales[defaultLocale]);
+const currentThemeLabel = computed(() => (theme.value === "light" ? "Dark mode" : "Light mode"));
+const nextThemeLabel = computed(() => (theme.value === "light" ? "dark" : "light"));
+
+const applyTheme = (value: ThemeMode) => {
+  theme.value = value;
+  document.documentElement.dataset.theme = value;
+};
+
+const toggleTheme = () => {
+  const nextTheme = theme.value === "light" ? "dark" : "light";
+  applyTheme(nextTheme);
+  localStorage.setItem(themeStorageKey, nextTheme);
+};
 
 onMounted(() => {
   const lang = navigator.language.toLowerCase();
+  const storedTheme = localStorage.getItem(themeStorageKey);
+  const preferredTheme =
+    storedTheme === "light" || storedTheme === "dark"
+      ? storedTheme
+      : window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+
+  applyTheme(preferredTheme);
 
   if (lang.startsWith("de")) {
     browserLang.value = "de-DE";
