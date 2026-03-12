@@ -91,17 +91,8 @@
         </article>
 
         <article id="contact" class="detail-card">
-          <p class="section-label">Contact</p>
-          <h2>Start a conversation.</h2>
-          <p>
-            The fastest way to reach me is still a direct note. Open the form, share a few details, and I will have a
-            draft ready to send.
-          </p>
-          <div class="contact-actions">
-            <button class="button button--primary contact-submit" type="button" v-bind="tallyPopupAttrs">
-              Open contact form
-            </button>
-          </div>
+          <p class="section-label">Socials</p>
+          <h2>Find me online.</h2>
           <div class="social-links">
             <a class="social-link" href="https://github.com/subasically" target="_blank" rel="noreferrer">
               <img src="../assets/images/github-mark.svg" alt="" />
@@ -110,13 +101,6 @@
             <a class="social-link" href="https://www.linkedin.com/in/alensubasic" target="_blank" rel="noreferrer">
               <img src="../assets/images/linkedin.svg" alt="" />
               <span>LinkedIn</span>
-            </a>
-            <a
-              class="social-link"
-              href="mailto:alensubasic@gmail.com?subject=Your%20website%20is%20cool!&body=Hi%20Alen%2C%0D%0A%0D%0AI%20would%20like%20to%20work%20with%20you."
-            >
-              <img src="../assets/images/email.svg" alt="" />
-              <span>Email</span>
             </a>
           </div>
         </article>
