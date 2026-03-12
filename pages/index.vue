@@ -6,7 +6,7 @@
         <div class="top-bar__links">
           <a href="#about">About</a>
           <a href="#focus">Focus</a>
-          <a href="#contact">Contact</a>
+          <button type="button" class="top-bar__button" v-bind="tallyPopupAttrs">Contact</button>
         </div>
       </nav>
 
@@ -25,12 +25,13 @@
             </article>
           </div>
           <div class="hero-actions">
-            <a
+            <button
               class="button button--primary"
-              href="mailto:alensubasic@gmail.com?subject=Let%27s%20build%20something&body=Hi%20Alen%2C%0D%0A%0D%0AI%27d%20love%20to%20talk%20about..."
+              type="button"
+              v-bind="tallyPopupAttrs"
             >
               Start a conversation
-            </a>
+            </button>
             <a class="button button--secondary" href="https://github.com/subasically" target="_blank" rel="noreferrer">
               View GitHub
             </a>
@@ -90,8 +91,8 @@
         </article>
 
         <article id="contact" class="detail-card">
-          <p class="section-label">Reach out</p>
-          <h2>Find me online</h2>
+          <p class="section-label">Socials</p>
+          <h2>Find me online.</h2>
           <div class="social-links">
             <a class="social-link" href="https://github.com/subasically" target="_blank" rel="noreferrer">
               <img src="../assets/images/github-mark.svg" alt="" />
@@ -100,13 +101,6 @@
             <a class="social-link" href="https://www.linkedin.com/in/alensubasic" target="_blank" rel="noreferrer">
               <img src="../assets/images/linkedin.svg" alt="" />
               <span>LinkedIn</span>
-            </a>
-            <a
-              class="social-link"
-              href="mailto:alensubasic@gmail.com?subject=Your%20website%20is%20cool!&body=Hi%20Alen%2C%0D%0A%0D%0AI%20would%20like%20to%20work%20with%20you."
-            >
-              <img src="../assets/images/email.svg" alt="" />
-              <span>Email</span>
             </a>
           </div>
         </article>
@@ -140,6 +134,12 @@ useHead({
       content: "Self-taught software engineer with 12 years of experience, focused on backend systems, Python automation, AWS Lambda, and data transformation pipelines.",
     },
   ],
+  script: [
+    {
+      src: "https://tally.so/widgets/embed.js",
+      async: true,
+    },
+  ],
 });
 
 useSeoMeta({
@@ -161,6 +161,13 @@ type LocaleContent = {
 const defaultLocale: LocaleKey = "en-US";
 const browserLang = ref<LocaleKey>(defaultLocale);
 const year = new Date().getFullYear();
+const tallyPopupAttrs = {
+  "data-tally-open": "Gx1Gle",
+  "data-tally-layout": "modal",
+  "data-tally-width": "560",
+  "data-tally-overlay": "1",
+  "data-tally-auto-close": "0",
+};
 
 const metrics = [
   { value: "Python", label: "automation" },

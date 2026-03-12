@@ -5,6 +5,7 @@
 .nitro
 .cache
 dist
+.amplify-hosting
 
 # Node dependencies
 node_modules
@@ -21,4 +22,3 @@ logs
 # Local env files
 .env
 .env.*
-!.env.example

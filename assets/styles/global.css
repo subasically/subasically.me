@@ -109,6 +109,7 @@ img {
 }
 
 .top-bar__links a,
+.top-bar__button,
 .brand-mark {
   display: inline-flex;
   align-items: center;
@@ -121,6 +122,12 @@ img {
   backdrop-filter: blur(12px);
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.82rem;
+}
+
+.top-bar__button {
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
 }
 
 .brand-mark {
@@ -339,6 +346,14 @@ img {
   margin-top: 18px;
 }
 
+.contact-actions {
+  margin-top: 18px;
+}
+
+.contact-submit {
+  width: 100%;
+}
+
 .social-link {
   display: flex;
   align-items: center;
@@ -469,6 +484,7 @@ img {
   .button,
   .social-link,
   .top-bar__links a,
+  .top-bar__button,
   .brand-mark {
     width: 100%;
     justify-content: center;
