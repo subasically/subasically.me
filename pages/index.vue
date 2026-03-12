@@ -9,7 +9,8 @@
           <button
             type="button"
             class="top-bar__button"
-            :aria-label="`Switch to ${nextThemeLabel} mode`"
+            :aria-label="`Activate ${nextThemeLabel} theme`"
+            :aria-pressed="isDarkTheme"
             @click="toggleTheme"
           >
             {{ currentThemeLabel }}
@@ -136,6 +137,38 @@ import { computed, onMounted, ref } from "vue";
 
 type ThemeMode = "light" | "dark";
 
+type LocaleKey = "en-US" | "en-GB" | "de-DE" | "da-DK" | "sv-SE";
+
+type LocaleContent = {
+  greeting: string;
+  aboutme: string;
+};
+
+const defaultLocale: LocaleKey = "en-US";
+const browserLang = ref<LocaleKey>(defaultLocale);
+const year = new Date().getFullYear();
+const themeStorageKey = "subasically-theme";
+const themeInitScript = `(() => {
+  try {
+    const storedTheme = localStorage.getItem("${themeStorageKey}");
+    const resolvedTheme =
+      storedTheme === "light" || storedTheme === "dark"
+        ? storedTheme
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+    document.documentElement.dataset.theme = resolvedTheme;
+  } catch {}
+})();`;
+const theme = ref<ThemeMode>("light");
+const tallyPopupAttrs = {
+  "data-tally-open": "Gx1Gle",
+  "data-tally-layout": "modal",
+  "data-tally-width": "560",
+  "data-tally-overlay": "1",
+  "data-tally-auto-close": "0",
+};
+
 useHead({
   title: "Alen Subasic",
   meta: [
@@ -145,6 +178,10 @@ useHead({
     },
   ],
   script: [
+    {
+      key: "theme-init",
+      innerHTML: themeInitScript,
+    },
     {
       src: "https://tally.so/widgets/embed.js",
       async: true,
@@ -160,26 +197,6 @@ useSeoMeta({
   twitterTitle: "Alen Subasic",
   twitterDescription: "Backend systems, Python automation, AWS Lambda, and data transformation pipelines.",
 });
-
-type LocaleKey = "en-US" | "en-GB" | "de-DE" | "da-DK" | "sv-SE";
-
-type LocaleContent = {
-  greeting: string;
-  aboutme: string;
-};
-
-const defaultLocale: LocaleKey = "en-US";
-const browserLang = ref<LocaleKey>(defaultLocale);
-const year = new Date().getFullYear();
-const theme = ref<ThemeMode>("light");
-const themeStorageKey = "subasically-theme";
-const tallyPopupAttrs = {
-  "data-tally-open": "Gx1Gle",
-  "data-tally-layout": "modal",
-  "data-tally-width": "560",
-  "data-tally-overlay": "1",
-  "data-tally-auto-close": "0",
-};
 
 const metrics = [
   { value: "Python", label: "automation" },
@@ -217,7 +234,24 @@ const locales: Record<LocaleKey, LocaleContent> = {
 
 const locale = computed(() => locales[browserLang.value] ?? locales[defaultLocale]);
 const currentThemeLabel = computed(() => (theme.value === "light" ? "Dark mode" : "Light mode"));
-const nextThemeLabel = computed(() => (theme.value === "light" ? "dark" : "light"));
+const isDarkTheme = computed(() => theme.value === "dark");
+const nextThemeLabel = computed(() => (isDarkTheme.value ? "light" : "dark"));
+
+const resolveTheme = (): ThemeMode => {
+  const currentTheme = document.documentElement.dataset.theme;
+
+  if (currentTheme === "light" || currentTheme === "dark") {
+    return currentTheme;
+  }
+
+  const storedTheme = localStorage.getItem(themeStorageKey);
+
+  if (storedTheme === "light" || storedTheme === "dark") {
+    return storedTheme;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+};
 
 const applyTheme = (value: ThemeMode) => {
   theme.value = value;
@@ -232,15 +266,7 @@ const toggleTheme = () => {
 
 onMounted(() => {
   const lang = navigator.language.toLowerCase();
-  const storedTheme = localStorage.getItem(themeStorageKey);
-  const preferredTheme =
-    storedTheme === "light" || storedTheme === "dark"
-      ? storedTheme
-      : window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-
-  applyTheme(preferredTheme);
+  applyTheme(resolveTheme());
 
   if (lang.startsWith("de")) {
     browserLang.value = "de-DE";

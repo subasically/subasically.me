@@ -46,7 +46,6 @@ html {
     linear-gradient(180deg, #f7f3ea 0%, var(--page-bg) 100%);
 }
 
-:root[data-theme="dark"] html,
 html[data-theme="dark"] {
   background:
     radial-gradient(circle at 12% 10%, rgba(241, 176, 78, 0.14), transparent 18%),
