@@ -7,6 +7,7 @@ frontend:
         - corepack enable && yarn install
     build:
       commands:
+        - export NITRO_PRESET=aws-amplify
         - yarn build
   artifacts:
     baseDirectory: .amplify-hosting
