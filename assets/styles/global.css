@@ -20,6 +20,19 @@
   --shadow: 0 24px 80px rgba(24, 33, 38, 0.12);
 }
 
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #081015;
+  --surface: rgba(19, 27, 31, 0.82);
+  --surface-strong: #192328;
+  --surface-border: rgba(219, 229, 231, 0.1);
+  --text: #edf2ee;
+  --muted: #a6b4b3;
+  --accent: #56b595;
+  --accent-dark: #9ee2ca;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -31,6 +44,24 @@ html {
     radial-gradient(circle at top left, rgba(250, 197, 99, 0.32), transparent 30%),
     radial-gradient(circle at top right, rgba(12, 124, 89, 0.18), transparent 28%),
     linear-gradient(180deg, #f7f3ea 0%, var(--page-bg) 100%);
+}
+
+html[data-theme="dark"] {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(241, 176, 78, 0.14), transparent 18%),
+    radial-gradient(circle at 88% 8%, rgba(64, 152, 129, 0.14), transparent 20%),
+    radial-gradient(circle at 50% 0%, rgba(23, 58, 69, 0.22), transparent 34%),
+    linear-gradient(180deg, #071015 0%, #081319 42%, var(--page-bg) 100%);
+}
+
+:root[data-theme="dark"] .site-shell__glow--left {
+  background: rgba(241, 176, 78, 0.12);
+  opacity: 0.32;
+}
+
+:root[data-theme="dark"] .site-shell__glow--right {
+  background: rgba(86, 181, 149, 0.12);
+  opacity: 0.26;
 }
 
 body {
@@ -221,6 +252,15 @@ img {
   border: 1px solid rgba(24, 33, 38, 0.08);
 }
 
+:root[data-theme="dark"] .metric-card,
+:root[data-theme="dark"] .social-link,
+:root[data-theme="dark"] .top-bar__links a,
+:root[data-theme="dark"] .top-bar__button,
+:root[data-theme="dark"] .brand-mark {
+  background: rgba(22, 31, 36, 0.86);
+  border-color: rgba(219, 229, 231, 0.08);
+}
+
 .metric-card__value,
 .metric-card__label {
   font-family: "IBM Plex Mono", monospace;
@@ -368,6 +408,11 @@ img {
 .social-link img {
   width: 1.2rem;
   height: 1.2rem;
+  filter: none;
+}
+
+:root[data-theme="dark"] .social-link img {
+  filter: invert(0.92);
 }
 
 .site-footer {
