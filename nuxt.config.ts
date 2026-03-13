@@ -5,6 +5,11 @@ export default defineNuxtConfig({
   modules: ['@nuxt/scripts'],
   runtimeConfig: {
     tallyApiKey: process.env.TALLY_API_KEY,
+    public: {
+      plausibleScriptSrc: process.env.PLAUSIBLE_SCRIPT_SRC || '',
+      plausibleDomain: process.env.PLAUSIBLE_DOMAIN || '',
+      plausibleApiHost: process.env.PLAUSIBLE_API_HOST || 'https://plausible.io',
+    },
   },
   experimental: {
     appManifest: false,
