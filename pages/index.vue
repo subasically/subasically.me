@@ -126,6 +126,7 @@
 
       <footer class="site-footer fade-in fade-in--5">
         <p>Built with Nuxt.</p>
+        <NuxtLink to="/privacy">Privacy</NuxtLink>
         <p>&copy; {{ year }} Alen Subasic</p>
       </footer>
     </main>
